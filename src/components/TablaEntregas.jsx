@@ -29,7 +29,8 @@ const TablaEntregas = ({ entregas }) => {
       columns={columns}
       rowKey={(entrega) => entrega.id}
       pagination={{ pageSize: 5 }}
-      scroll={{ y: 300 }} 
+      scroll={{ x: "max-content", y: 300 }}
+      style={{ width: "100%" }}
     />
   );
 };

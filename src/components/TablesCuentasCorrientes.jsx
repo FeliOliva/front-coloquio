@@ -58,39 +58,46 @@ const TablesCuentasCorrientes = () => {
         align="middle"
         style={{ marginBottom: "16px" }}
       >
-        <Col xs={24} md={8}>
+        <Col xs={24} md={8} lg={6}>
           <SelectClientes
             value={cliente}
             onChangeCliente={handleClienteChange}
             onInputChange={setCliente}
           />
         </Col>
-        <Col xs={24} md={4}>
+        <Col xs={24} md={4} lg={6}>
           <Button type="primary" onClick={handleSelectedClient} block>
             Buscar
           </Button>
         </Col>
-        <Col xs={24} md={4} style={{ textAlign: "right" }}>
+        <Col xs={24} md={4} lg={6} style={{ textAlign: "right" }}>
           <LogOutButton />
         </Col>
-        {remitos.length > 0 && (
-          <Col xs={24}>
-            <h2>Remitos</h2>
-            <Table
-              dataSource={remitos}
-              columns={columnsRemitos}
-              rowKey={(remito) => remito.id}
-              pagination={{ pageSize: 5 }}
-              scroll={{ y: 300 }}
-            />
-          </Col>
-        )}
-        {entregas.length > 0 && (
-          <Col xs={24}>
-            <h2>Entregas</h2>
-            <TablaEntregas entregas={entregas} />
-          </Col>
-        )}
+      </Row>
+      <Row gutter={[16, 16]}>
+        <Col xs={24} lg={12} xx={16}>
+          {remitos.length > 0 && (
+            <>
+              <h2>Remitos</h2>
+              <Table
+                dataSource={remitos}
+                columns={columnsRemitos}
+                rowKey={(remito) => remito.id}
+                pagination={{ pageSize: 5 }}
+                scroll={{ x: "max-content", y: 300 }}
+                style={{ width: "100%" }}
+              />
+            </>
+          )}
+        </Col>
+        <Col xs={24} lg={12}>
+          {entregas.length > 0 && (
+            <>
+              <h2>Entregas</h2>
+              <TablaEntregas entregas={entregas} />
+            </>
+          )}
+        </Col>
       </Row>
     </div>
   );

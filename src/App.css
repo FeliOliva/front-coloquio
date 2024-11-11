@@ -149,23 +149,3 @@
   } 
 }
 
-/* Ajuste de la tabla en pantallas pequeñas */
-@media (max-width: 768px) {
-  .ant-table-thead > tr > th,
-  .ant-table-tbody > tr > td {
-    font-size: 12px; /* Texto más pequeño */
-    padding: 8px; /* Espaciado reducido */
-  }
-
-  /* Ocultar columnas en pantallas pequeñas si es necesario */
-  .ant-table-cell:nth-child(3), /* Por ejemplo, la tercera columna */
-  .ant-table-cell:nth-child(4) {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .ant-table {
-    font-size: 10px; /* Texto aún más pequeño en pantallas extra pequeñas */
-  }
-}
