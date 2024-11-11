@@ -75,17 +75,19 @@ const TablesCuentasCorrientes = () => {
         </Col>
         {remitos.length > 0 && (
           <Col xs={24}>
+            <h2>Remitos</h2>
             <Table
               dataSource={remitos}
               columns={columnsRemitos}
               rowKey={(remito) => remito.id}
               pagination={{ pageSize: 5 }}
-              scroll={{ x: "100%" }}
+              overflow="scroll"
             />
           </Col>
         )}
         {entregas.length > 0 && (
           <Col xs={24}>
+            <h2>Entregas</h2>
             <TablaEntregas entregas={entregas} />
           </Col>
         )}
