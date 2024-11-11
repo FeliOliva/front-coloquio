@@ -81,7 +81,7 @@ const TablesCuentasCorrientes = () => {
               columns={columnsRemitos}
               rowKey={(remito) => remito.id}
               pagination={{ pageSize: 5 }}
-              overflow="scroll"
+              scroll={{ y: 300 }} // Ajusta el valor de "y" para el alto deseado
             />
           </Col>
         )}
