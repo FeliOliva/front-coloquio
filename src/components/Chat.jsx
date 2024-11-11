@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import axios from "axios";
 import ChatWidget from "./ChatWidget";
 import { DataContext } from "../context/DataContext";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const Chat = () => {
   const { fetchClientes, fetchRemitos, fetchEntregas } =
@@ -10,12 +11,9 @@ const Chat = () => {
   const handleSendMessage = async (message, callback) => {
     console.log("Message:", message);
     try {
-      const response = await axios.post(
-        "https://coloquio-backend.vercel.app/api/chat",
-        {
-          message,
-        }
-      );
+      const response = await axios.post(`${API_URL}/api/chat`, {
+        message,
+      });
       console.log("Respuesta del backend:", response.data);
 
       // Llama a todas las funciones de fetch para actualizar los datos

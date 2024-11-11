@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
-
+const API_URL = process.env.REACT_APP_API_URL;
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
@@ -11,9 +11,7 @@ export const DataProvider = ({ children }) => {
   // Función para cargar clientes
   const fetchClientes = async () => {
     try {
-      const response = await axios.get(
-        "http://coloquio-backend.vercel.app/api/clients"
-      );
+      const response = await axios.get(`${API_URL}/api/clients`);
       setClientes(response.data);
     } catch (error) {
       console.error("Error fetching clientes:", error);
@@ -24,7 +22,7 @@ export const DataProvider = ({ children }) => {
   const fetchRemitos = async (cuentaCorrienteId) => {
     try {
       const response = await axios.get(
-        `http://coloquio-backend.vercel.app/api/remito/cuenta_corriente/${cuentaCorrienteId}`
+        `${API_URL}/api/remito/cuenta_corriente/${cuentaCorrienteId}`
       );
       setRemitos(response.data);
     } catch (error) {
@@ -36,7 +34,7 @@ export const DataProvider = ({ children }) => {
   const fetchEntregas = async (cuentaCorrienteId) => {
     try {
       const response = await axios.get(
-        `http://coloquio-backend.vercel.app/api/entregasxcuenta_corriente/${cuentaCorrienteId}`
+        `${API_URL}/entregasxcuenta_corriente/${cuentaCorrienteId}`
       );
       setEntregas(response.data);
       console.log("Entregas:", response.data);
