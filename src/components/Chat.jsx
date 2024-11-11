@@ -10,9 +10,12 @@ const Chat = () => {
   const handleSendMessage = async (message, callback) => {
     console.log("Message:", message);
     try {
-      const response = await axios.post("http://localhost:3001/api/chat", {
-        message,
-      });
+      const response = await axios.post(
+        "https://coloquio-backend.vercel.app/api/chat",
+        {
+          message,
+        }
+      );
       console.log("Respuesta del backend:", response.data);
 
       // Llama a todas las funciones de fetch para actualizar los datos

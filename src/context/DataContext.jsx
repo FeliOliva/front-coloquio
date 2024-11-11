@@ -11,7 +11,9 @@ export const DataProvider = ({ children }) => {
   // Función para cargar clientes
   const fetchClientes = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/clients");
+      const response = await axios.get(
+        "http://coloquio-backend.vercel.app/api/clients"
+      );
       setClientes(response.data);
     } catch (error) {
       console.error("Error fetching clientes:", error);
@@ -22,7 +24,7 @@ export const DataProvider = ({ children }) => {
   const fetchRemitos = async (cuentaCorrienteId) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/remito/cuenta_corriente/${cuentaCorrienteId}`
+        `http://coloquio-backend.vercel.app/api/remito/cuenta_corriente/${cuentaCorrienteId}`
       );
       setRemitos(response.data);
     } catch (error) {
@@ -34,7 +36,7 @@ export const DataProvider = ({ children }) => {
   const fetchEntregas = async (cuentaCorrienteId) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/entregasxcuenta_corriente/${cuentaCorrienteId}`
+        `http://coloquio-backend.vercel.app/api/entregasxcuenta_corriente/${cuentaCorrienteId}`
       );
       setEntregas(response.data);
       console.log("Entregas:", response.data);

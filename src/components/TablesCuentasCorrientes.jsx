@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import { DataContext } from "../context/DataContext";
 import TablaEntregas from "./TablaEntregas";
 import "../App.css";
+import LogOutButton from "./LogOutButton";
 
 const TablesCuentasCorrientes = () => {
   const [cliente, setCliente] = useState(null);
@@ -52,7 +53,11 @@ const TablesCuentasCorrientes = () => {
 
   return (
     <div style={{ padding: "16px" }}>
-      <Row gutter={[16, 16]}>
+      <Row
+        justify="space-between"
+        align="middle"
+        style={{ marginBottom: "16px" }}
+      >
         <Col xs={24} md={8}>
           <SelectClientes
             value={cliente}
@@ -64,6 +69,9 @@ const TablesCuentasCorrientes = () => {
           <Button type="primary" onClick={handleSelectedClient} block>
             Buscar
           </Button>
+        </Col>
+        <Col xs={24} md={4} style={{ textAlign: "right" }}>
+          <LogOutButton />
         </Col>
         {remitos.length > 0 && (
           <Col xs={24}>
