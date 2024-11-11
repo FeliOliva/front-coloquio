@@ -7,7 +7,7 @@ export const DataProvider = ({ children }) => {
   const [clientes, setClientes] = useState([]);
   const [remitos, setRemitos] = useState([]);
   const [entregas, setEntregas] = useState([]);
-
+  console.log("api url", API_URL);
   // Función para cargar clientes
   const fetchClientes = async () => {
     try {
@@ -34,7 +34,7 @@ export const DataProvider = ({ children }) => {
   const fetchEntregas = async (cuentaCorrienteId) => {
     try {
       const response = await axios.get(
-        `${API_URL}/entregasxcuenta_corriente/${cuentaCorrienteId}`
+        `${API_URL}/api/entregasxcuenta_corriente/${cuentaCorrienteId}`
       );
       setEntregas(response.data);
       console.log("Entregas:", response.data);
